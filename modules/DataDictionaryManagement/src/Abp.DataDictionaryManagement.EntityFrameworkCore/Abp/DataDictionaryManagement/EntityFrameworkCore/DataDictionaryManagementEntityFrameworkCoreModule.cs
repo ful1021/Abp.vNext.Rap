@@ -14,9 +14,8 @@ namespace Abp.DataDictionaryManagement.EntityFrameworkCore
         {
             context.Services.AddAbpDbContext<DataDictionaryManagementDbContext>(options =>
             {
-                /* Add custom repositories here. Example:
-                 * options.AddRepository<Question, EfCoreQuestionRepository>();
-                 */
+                options.AddDefaultRepositories<IDataDictionaryManagementDbContext>();
+                options.AddRepository<DataDictionary, EfCoreDataDictionaryRepository>();
             });
         }
     }

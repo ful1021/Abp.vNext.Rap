@@ -11,14 +11,11 @@ namespace Abp.DataDictionaryManagement.EntityFrameworkCore
 
         public static string Schema { get; set; } = DataDictionaryManagementConsts.DefaultDbSchema;
 
-        /* Add DbSet for each Aggregate Root here. Example:
-         * public DbSet<Question> Questions { get; set; }
-         */
+        public DbSet<DataDictionary> DataDictionaries { get; set; }
 
-        public DataDictionaryManagementDbContext(DbContextOptions<DataDictionaryManagementDbContext> options) 
+        public DataDictionaryManagementDbContext(DbContextOptions<DataDictionaryManagementDbContext> options)
             : base(options)
         {
-
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

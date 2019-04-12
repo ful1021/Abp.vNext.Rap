@@ -20,4 +20,8 @@
     <Content Remove="Abp\DataDictionaryManagement\Localization\ApplicationContracts\*.json" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Abp\DataDictionaryManagement\Dtos\" />
+  </ItemGroup>
+
 </Project>

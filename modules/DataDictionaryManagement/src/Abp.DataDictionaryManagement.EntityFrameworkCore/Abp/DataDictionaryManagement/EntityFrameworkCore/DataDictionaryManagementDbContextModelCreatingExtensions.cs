@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace Abp.DataDictionaryManagement.EntityFrameworkCore
 {
@@ -16,23 +17,27 @@ namespace Abp.DataDictionaryManagement.EntityFrameworkCore
 
             optionsAction?.Invoke(options);
 
-            /* Configure all entities here. Example:
-
-            builder.Entity<Question>(b =>
+            builder.Entity<DataDictionary>(b =>
             {
-                //Configure table & schema name
-                //b.ToTable(options.TablePrefix + "Questions", options.Schema);
-                
+                //Configure table &schema name
+                b.ToTable(options.TablePrefix + "DataDictionary", options.Schema);
+
+                b.ConfigureExtraProperties();
+                b.ConfigureAudited();
+
                 //Properties
-                //b.Property(q => q.Title).IsRequired().HasMaxLength(QuestionConsts.MaxTitleLength);
-                
-                //Configure relations
-                //b.HasMany(question => question.Tags).WithOne().HasForeignKey(qt => qt.QuestionId);
+                b.Property(q => q.DictCode).HasMaxLength(DataDictionaryConsts.MaxDictCodeLength).IsRequired();
+                b.Property(q => q.DictValue).HasMaxLength(DataDictionaryConsts.MaxDictValueLength).IsRequired();
+                b.Property(q => q.DictValueType);
+                b.Property(q => q.Id);
+                b.Property(q => q.ParentId);
+                b.Property(q => q.Sort);
+                b.Property(q => q.TypeCode).HasMaxLength(DataDictionaryConsts.MaxTypeCodeLength);
+                b.Property(q => q.TypeName).HasMaxLength(DataDictionaryConsts.MaxTypeNameLength);
 
                 //Configure indexes
-                //b.HasIndex(q => q.CreationTime);
+                b.HasIndex(q => q.TypeCode);
             });
-            */
         }
     }
 }
