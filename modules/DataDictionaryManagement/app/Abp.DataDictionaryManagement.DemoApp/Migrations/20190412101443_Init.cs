@@ -1,9 +1,10 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Abp.DataDictionaryManagement.DemoApp.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -110,6 +111,31 @@ namespace Abp.DataDictionaryManagement.DemoApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AbpUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Mdm_DataDictionary",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ExtraProperties = table.Column<string>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    CreationTime = table.Column<DateTime>(nullable: false),
+                    CreatorId = table.Column<Guid>(nullable: true),
+                    LastModificationTime = table.Column<DateTime>(nullable: true),
+                    LastModifierId = table.Column<Guid>(nullable: true),
+                    ParentId = table.Column<int>(nullable: false),
+                    TypeCode = table.Column<string>(maxLength: 128, nullable: true),
+                    TypeName = table.Column<string>(maxLength: 256, nullable: true),
+                    DictCode = table.Column<string>(maxLength: 128, nullable: false),
+                    DictValue = table.Column<string>(maxLength: 256, nullable: false),
+                    DictValueType = table.Column<int>(nullable: false),
+                    Sort = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Mdm_DataDictionary", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -275,6 +301,11 @@ namespace Abp.DataDictionaryManagement.DemoApp.Migrations
                 name: "IX_AbpUsers_UserName",
                 table: "AbpUsers",
                 column: "UserName");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Mdm_DataDictionary_TypeCode",
+                table: "Mdm_DataDictionary",
+                column: "TypeCode");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -302,6 +333,9 @@ namespace Abp.DataDictionaryManagement.DemoApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "AbpUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Mdm_DataDictionary");
 
             migrationBuilder.DropTable(
                 name: "AbpRoles");
