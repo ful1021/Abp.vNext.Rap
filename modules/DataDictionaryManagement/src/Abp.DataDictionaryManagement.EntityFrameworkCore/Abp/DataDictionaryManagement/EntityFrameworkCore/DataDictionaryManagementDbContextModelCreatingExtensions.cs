@@ -27,7 +27,7 @@ namespace Abp.DataDictionaryManagement.EntityFrameworkCore
 
                 //Properties
                 b.Property(q => q.DictCode).HasMaxLength(DataDictionaryConsts.MaxDictCodeLength).IsRequired();
-                b.Property(q => q.DictValue).HasMaxLength(DataDictionaryConsts.MaxDictValueLength).IsRequired();
+                b.Property(q => q.DictValue).HasMaxLength(DataDictionaryConsts.MaxDictValueLength);
                 b.Property(q => q.DictValueType);
                 b.Property(q => q.Id);
                 b.Property(q => q.ParentId);

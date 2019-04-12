@@ -3,7 +3,10 @@ using Volo.Abp.Application.Services;
 
 namespace Abp.DataDictionaryManagement
 {
-    public interface IDataDictionaryAppService : IAsyncCrudAppService<DataDictionaryDto, int>
+    /// <summary>
+    ///   服务契约
+    /// </summary>
+    public interface IDataDictionaryAppService : IAsyncCrudAppService<DataDictionaryQueryDto, int, DataDictionaryGetAllInput, DataDictionaryDto, DataDictionaryDto>
     {
     }
 }
