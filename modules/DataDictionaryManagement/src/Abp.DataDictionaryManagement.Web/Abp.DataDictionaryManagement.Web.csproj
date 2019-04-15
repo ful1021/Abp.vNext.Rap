@@ -26,8 +26,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Abp.DataDictionaryManagement.HttpApi\Abp.DataDictionaryManagement.HttpApi.csproj" />
-    <PackageReference Include="Volo.Abp.AutoMapper" Version="0.15.0" />
-    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared" Version="0.15.0" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="0.16.0" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared" Version="0.16.0" />
   </ItemGroup>
 
   <ItemGroup>
