@@ -115,7 +115,6 @@ namespace Abp.DataDictionaryManagement.DemoApp
             app.UseAbpRequestLocalization();
             app.UseAuditing();
 
-
             app.UseMvcWithDefaultRouteAndArea();
 
             using (var scope = context.ServiceProvider.CreateScope())
@@ -123,18 +122,8 @@ namespace Abp.DataDictionaryManagement.DemoApp
                 AsyncHelper.RunSync(async () =>
                 {
                     await scope.ServiceProvider
-                        .GetRequiredService<IIdentityDataSeeder>()
-                        .SeedAsync(
-                            "1q2w3E*"
-                        );
-
-                    await scope.ServiceProvider
-                        .GetRequiredService<IPermissionDataSeeder>()
-                        .SeedAsync(
-                            RolePermissionValueProvider.ProviderName,
-                            "admin",
-                            IdentityPermissions.GetAll().Union(DataDictionaryManagementPermissions.GetAll())
-                        );
+                        .GetRequiredService<IDataSeeder>()
+                        .SeedAsync();
                 });
             }
         }

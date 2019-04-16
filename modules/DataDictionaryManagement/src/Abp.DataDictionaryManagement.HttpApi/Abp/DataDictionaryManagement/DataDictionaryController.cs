@@ -8,8 +8,8 @@ using Volo.Abp.AspNetCore.Mvc;
 namespace Abp.DataDictionaryManagement
 {
     [RemoteService]
-    [Area("dataDictionaryManagement")]
-    [Route("api/dataDictionaryManagement/dataDictionary")]
+    [Area("DataDictionaryManagement")]
+    [Route("api/DataDictionaryManagement/dataDictionary")]
     public class DataDictionaryController : AbpController, IDataDictionaryAppService
     {
         private readonly IDataDictionaryAppService _dataDictionaryAppService;
