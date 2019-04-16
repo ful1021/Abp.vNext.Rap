@@ -24,6 +24,7 @@ namespace Abp.DataDictionaryManagement.EntityFrameworkCore
 
                 b.ConfigureExtraProperties();
                 b.ConfigureAudited();
+                b.ConfigureConcurrencyStamp();
 
                 //Properties
                 b.Property(q => q.DictCode).HasMaxLength(DataDictionaryConsts.MaxDictCodeLength).IsRequired();

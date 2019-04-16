@@ -1,8 +1,8 @@
 # COMMON PATHS
 
 $buildFolder = (Get-Item -Path "./" -Verbose).FullName
-$slnFolder = Join-Path $buildFolder "../"
-$outputFolder = Join-Path $buildFolder "outputs"
+$slnFolder = Join-Path $buildFolder "./"
+$outputFolder = Join-Path $buildFolder "build_outputs"
 $outputHostFolder = Join-Path $outputFolder "DemoApp"
 $webHostFolder = Join-Path $slnFolder "app/Abp.DataDictionaryManagement.DemoApp"
 
