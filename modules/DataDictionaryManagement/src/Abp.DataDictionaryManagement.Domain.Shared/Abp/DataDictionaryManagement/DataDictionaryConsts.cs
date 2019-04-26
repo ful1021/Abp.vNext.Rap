@@ -10,6 +10,8 @@
 
         public const int MaxTypeCodeLength = 128;
 
+        public const int RemarkMaxLength = 1024;
+
         public const int MaxTypeNameLength = 256;
     }
 }

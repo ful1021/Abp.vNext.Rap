@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Abp.DataDictionaryManagement.Localization;
+﻿using Abp.DataDictionaryManagement.Localization;
+using Volo.Abp.Caching;
 using Volo.Abp.Localization;
 using Volo.Abp.Localization.ExceptionHandling;
 using Volo.Abp.Modularity;
@@ -8,7 +8,8 @@ using Volo.Abp.VirtualFileSystem;
 namespace Abp.DataDictionaryManagement
 {
     [DependsOn(
-        typeof(DataDictionaryManagementDomainSharedModule)
+        typeof(DataDictionaryManagementDomainSharedModule),
+        typeof(AbpCachingModule)
         )]
     public class DataDictionaryManagementDomainModule : AbpModule
     {

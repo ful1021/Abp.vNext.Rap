@@ -1,4 +1,4 @@
-﻿namespace Abp.DataDictionaryManagement.Values
+﻿namespace Abp.Values
 {
     public enum DictValueType
     {

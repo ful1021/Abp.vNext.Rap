@@ -42,5 +42,10 @@ namespace Abp.DataDictionaryManagement.Dtos
         /// 排序
         /// </summary>
         public int Sort { get; set; }
+
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public virtual string Remark { get; set; }
     }
 }

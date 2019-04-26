@@ -32,6 +32,7 @@ namespace Abp.DataDictionaryManagement.EntityFrameworkCore
                 b.Property(q => q.DictValueType);
                 b.Property(q => q.Id);
                 b.Property(q => q.ParentId);
+                b.Property(q => q.Remark).HasMaxLength(DataDictionaryConsts.RemarkMaxLength);
                 b.Property(q => q.Sort);
                 b.Property(q => q.TypeCode).HasMaxLength(DataDictionaryConsts.MaxTypeCodeLength);
                 b.Property(q => q.TypeName).HasMaxLength(DataDictionaryConsts.MaxTypeNameLength);
